@@ -7,19 +7,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    // Add picker object
+    let pickerImage = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Set picker object parameters
+        pickerImage.delegate = self
+        pickerImage.allowsEditing  = true
+        pickerImage.sourceType = .camera
+        
     }
 
+    // Add picker delegate func
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let userPickerImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+            imageView.image = userPickerImage
+            
+        }
+        pickerImage.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
-        
+        present(pickerImage, animated: true, completion: nil)
         
     }
 }
