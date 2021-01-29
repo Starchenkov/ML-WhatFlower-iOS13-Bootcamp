@@ -8,13 +8,18 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textLabel: UILabel!
     
     // Add picker object
     let pickerImage = UIImagePickerController()
+    // Add URL API wikipedia
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +63,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             if let firstResult = result.first?.identifier {
                 self.navigationItem.title = firstResult.capitalized
+                self.requestInfo(flowerName: firstResult.capitalized)
             } 
         }
         
@@ -69,6 +75,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print ("Error request perfome \(error)")
         }
         
+    }
+    
+    // Add request to Wiki use with API -> get info about flower
+    func requestInfo(flowerName: String) {
+        
+        let parameters : [String:String] = [
+        "format" : "json",
+        "action" : "query",
+        "prop" : "extracts",
+        "exintro" : "",
+        "explaintext" : "",
+        "titles" : flowerName,
+        "indexpageids" : "",
+        "redirects" : "1",
+        ]
+        
+        AF.request(wikipediaURl, method: .get, parameters: parameters).responseJSON
+        { (response) in
+            if case .success = response.result {
+                print(response)
+                
+                let flowerJSON : JSON = JSON(response.value!)
+                
+                let pagesID = flowerJSON["query"]["pageids"][0].stringValue
+                print(pagesID)
+                
+                let flowerDescription = flowerJSON["query"]["pages"][pagesID]["extract"].stringValue
+                
+                self.textLabel.text = flowerDescription
+                
+            }
+        }
     }
 
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
