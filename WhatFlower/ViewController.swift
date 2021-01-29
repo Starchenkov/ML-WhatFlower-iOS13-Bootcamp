@@ -57,8 +57,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 fatalError("Error request")
             }
             if let firstResult = result.first?.identifier {
-                self.navigationItem.title = firstResult
-            }
+                self.navigationItem.title = firstResult.capitalized
+            } 
         }
         
         // Create handler
