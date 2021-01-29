@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickerImage.sourceType = .camera
         
     }
-
+    
     // Add picker delegate func
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -81,25 +81,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func requestInfo(flowerName: String) {
         
         let parameters : [String:String] = [
-        "format" : "json",
-        "action" : "query",
-        "prop" : "extracts",
-        "exintro" : "",
-        "explaintext" : "",
-        "titles" : flowerName,
-        "indexpageids" : "",
-        "redirects" : "1",
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : flowerName,
+            "indexpageids" : "",
+            "redirects" : "1",
         ]
         
         AF.request(wikipediaURl, method: .get, parameters: parameters).responseJSON
         { (response) in
             if case .success = response.result {
-                print(response)
                 
                 let flowerJSON : JSON = JSON(response.value!)
                 
                 let pagesID = flowerJSON["query"]["pageids"][0].stringValue
-                print(pagesID)
                 
                 let flowerDescription = flowerJSON["query"]["pages"][pagesID]["extract"].stringValue
                 
@@ -108,7 +106,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
-
+    
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
         
         present(pickerImage, animated: true, completion: nil)

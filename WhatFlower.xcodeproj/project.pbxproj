@@ -3,21 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		031B4C1F229380557943F2F8 /* Pods_WhatFlower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C384EB1990EE7F7DC08FF1 /* Pods_WhatFlower.framework */; };
+		20218ABF25C3E790004AA350 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 20218ABE25C3E790004AA350 /* FlowerClassifier.mlmodel */; };
 		203AFEF825C2945900B63553 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203AFEF725C2945900B63553 /* AppDelegate.swift */; };
 		203AFEFA25C2945900B63553 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203AFEF925C2945900B63553 /* SceneDelegate.swift */; };
 		203AFEFC25C2945900B63553 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203AFEFB25C2945900B63553 /* ViewController.swift */; };
 		203AFEFF25C2945900B63553 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203AFEFD25C2945900B63553 /* Main.storyboard */; };
 		203AFF0125C2945B00B63553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 203AFF0025C2945B00B63553 /* Assets.xcassets */; };
 		203AFF0425C2945B00B63553 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203AFF0225C2945B00B63553 /* LaunchScreen.storyboard */; };
-		203AFF1125C2C2AA00B63553 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 203AFF1025C2C2AA00B63553 /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20218ABE25C3E790004AA350 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		203AFEF425C2945900B63553 /* WhatFlower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatFlower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		203AFEF725C2945900B63553 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		203AFEF925C2945900B63553 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		203AFF0025C2945B00B63553 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		203AFF0325C2945B00B63553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		203AFF0525C2945B00B63553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		203AFF1025C2C2AA00B63553 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		257365BD291F689313BACE19 /* Pods-WhatFlower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatFlower.debug.xcconfig"; path = "Target Support Files/Pods-WhatFlower/Pods-WhatFlower.debug.xcconfig"; sourceTree = "<group>"; };
 		B7E343576C60C7F2AEF47F92 /* Pods-WhatFlower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatFlower.release.xcconfig"; path = "Target Support Files/Pods-WhatFlower/Pods-WhatFlower.release.xcconfig"; sourceTree = "<group>"; };
 		F7C384EB1990EE7F7DC08FF1 /* Pods_WhatFlower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatFlower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +72,7 @@
 				203AFF0025C2945B00B63553 /* Assets.xcassets */,
 				203AFF0225C2945B00B63553 /* LaunchScreen.storyboard */,
 				203AFF0525C2945B00B63553 /* Info.plist */,
-				203AFF1025C2C2AA00B63553 /* FlowerClassifier.mlmodel */,
+				20218ABE25C3E790004AA350 /* FlowerClassifier.mlmodel */,
 			);
 			path = WhatFlower;
 			sourceTree = "<group>";
@@ -83,7 +83,6 @@
 				257365BD291F689313BACE19 /* Pods-WhatFlower.debug.xcconfig */,
 				B7E343576C60C7F2AEF47F92 /* Pods-WhatFlower.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				203AFF1125C2C2AA00B63553 /* FlowerClassifier.mlmodel in Sources */,
+				20218ABF25C3E790004AA350 /* FlowerClassifier.mlmodel in Sources */,
 				203AFEFC25C2945900B63553 /* ViewController.swift in Sources */,
 				203AFEF825C2945900B63553 /* AppDelegate.swift in Sources */,
 				203AFEFA25C2945900B63553 /* SceneDelegate.swift in Sources */,
